@@ -136,7 +136,7 @@ end)
 -- MARK: UI Init
 --
 library = loadstring(game:HttpGet("https://raw.githubusercontent.com/guyjuju6/sas-mate/refs/heads/main/ui-library.lua"))()
-local UI = library:Init("Sas Mate | Lumber Tycoon 2")
+local UI = library:Init("Sas Mate", "Lumber Tycoon 2")
 local Tab, Section
 
 

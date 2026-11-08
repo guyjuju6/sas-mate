@@ -135,6 +135,25 @@ end)
 
 -- MARK: UI Init
 --
+do
+	local HttpService = game:GetService("HttpService")
+	if typeof(isfolder) == "function" and typeof(makefolder) == "function" then
+		if not isfolder("Sas") then
+			pcall(makefolder, "Sas")
+		end
+	end
+	if typeof(isfile) == "function" and typeof(writefile) == "function" then
+		if not isfile("Sas/Theme.txt") then
+			pcall(writefile, "Sas/Theme.txt", HttpService:JSONEncode({
+				main = "35, 35, 35",
+				secondary = "40, 40, 40",
+				accent = "31, 31, 31",
+				textcolor = "225, 225, 225",
+			}))
+		end
+	end
+end
+
 library = loadstring(game:HttpGet("https://raw.githubusercontent.com/guyjuju6/sas-mate/refs/heads/main/ui-library.lua"))()
 local UI = library:Create("Sas Mate", "Lumber Tycoon 2")
 local Tab, Section
@@ -189,47 +208,6 @@ end)
 
 
 Section:Toggle("Global Shadows", Config.globalShadows, function(Value)
-	Config.globalShadows = Value
-	Funcs:GlobalShadows(Value)
-end)
-alue
-	Funcs:ClearFog(Value)
-end)
-
-
-Section:Toggle("Global Shadows", "globalShadows", Config.globalShadows, function(Value)
-	Config.globalShadows = Value
-	Funcs:GlobalShadows(Value)
-end)alue
-	Funcs:ClearFog(Value)
-end)
-
-
-Section:Toggle("Global Shadows", "globalShadows", Config.globalShadows, function(Value)
-	Config.globalShadows = Value
-	Funcs:GlobalShadows(Value)
-end)alue
-	Funcs:ClearFog(Value)
-end)
-
-
-Section:Toggle("Global Shadows", "globalShadows", Config.globalShadows, function(Value)
-	Config.globalShadows = Value
-	Funcs:GlobalShadows(Value)
-end)alue
-	Funcs:ClearFog(Value)
-end)
-
-
-Section:Toggle("Global Shadows", "globalShadows", Config.globalShadows, function(Value)
-	Config.globalShadows = Value
-	Funcs:GlobalShadows(Value)
-end)alue
-	Funcs:ClearFog(Value)
-end)
-
-
-Section:Toggle("Global Shadows", "globalShadows", Config.globalShadows, function(Value)
 	Config.globalShadows = Value
 	Funcs:GlobalShadows(Value)
 end)

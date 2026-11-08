@@ -3,7 +3,7 @@
  / ___|  __ _/ ___|   |  \/  | __ _| |_ ___
  \___ \ / _` \___ \   | |\/| |/ _` | __/ _ \
   ___) | (_| |___) |  | |  | | (_| | ||  __/
- |____/ \__,_|____/   |_|  |_|\__,_|\__\___|
+ |____/ \__,_|____/   |_|  |_|\__,_|\__\___| V1
                                            
                          a project by JuJu
                                     Nov. 2026,
@@ -43,11 +43,11 @@ local Config = {
 -- UI Funcs
 --
 function Funcs:Notify(Title, Message)
-	library:notify({ Title = Title, Content = Message, Duration = 4 })
+	library:Notify(Title, Message)
 end
 
 function Funcs:ProgressBar(Title, Steps)
-	local Bar = library:progress(Title, Steps, false)
+	local Bar = library:ProgressBar(Title, Steps)
 	for _ = 1, Steps do
 		Bar:Update()
 		task.wait(0.1)
@@ -136,7 +136,7 @@ end)
 -- MARK: UI Init
 --
 library = loadstring(game:HttpGet("https://raw.githubusercontent.com/guyjuju6/sas-mate/refs/heads/main/ui-library.lua"))()
-local UI = library:Init("Sas Mate", "Lumber Tycoon 2")
+local UI = library:Create("Sas Mate", "Lumber Tycoon 2")
 local Tab, Section
 
 
@@ -149,19 +149,19 @@ Tab = UI:Tab("Player", "5012544693")
 Section = Tab:Section("Movement")
 
 
-Section:Slider("Walk Speed", "walkSpeed", Config.walkSpeed, 16, 100, false, function(Value)
+Section:Slider("Walk Speed", Config.walkSpeed, 16, 100, false, function(Value)
 	Config.walkSpeed = Value
 	Funcs:Walkspeed(Value)
 end)
 
 
-Section:Slider("Jump Power", "jumpPower", Config.jumpPower, 50, 200, false, function(Value)
+Section:Slider("Jump Power", Config.jumpPower, 50, 200, false, function(Value)
 	Config.jumpPower = Value
 	Funcs:JumpPower(Value)
 end)
 
 
-Section:Toggle("Infinite Jump", "infiniteJump", Config.infiniteJump, function(Value)
+Section:Toggle("Infinite Jump", Config.infiniteJump, function(Value)
 	Config.infiniteJump = Value
 end)
 
@@ -170,20 +170,61 @@ end)
 --
 Section = Tab:Section("Camera")
 
-Section:Slider("Zoom Distance", "zoomDistance", Config.zoomDistance, 10, 1000, false, function(Value)
+Section:Slider("Zoom Distance", Config.zoomDistance, 10, 1000, false, function(Value)
 	Config.zoomDistance = Value
 	Funcs:ZoomDistance(Value)
 end)
 
 
-Section:Slider("FOV", "fov", Config.FOV, 30, 120, false, function(Value)
+Section:Slider("FOV", Config.FOV, 30, 120, false, function(Value)
 	Config.FOV = Value
 	Funcs:FOV(Value)
 end)
 
 
-Section:Toggle("Clear Fog", "clearFog", Config.clearFog, function(Value)
+Section:Toggle("Clear Fog", Config.clearFog, function(Value)
 	Config.clearFog = Value
+	Funcs:ClearFog(Value)
+end)
+
+
+Section:Toggle("Global Shadows", Config.globalShadows, function(Value)
+	Config.globalShadows = Value
+	Funcs:GlobalShadows(Value)
+end)
+alue
+	Funcs:ClearFog(Value)
+end)
+
+
+Section:Toggle("Global Shadows", "globalShadows", Config.globalShadows, function(Value)
+	Config.globalShadows = Value
+	Funcs:GlobalShadows(Value)
+end)alue
+	Funcs:ClearFog(Value)
+end)
+
+
+Section:Toggle("Global Shadows", "globalShadows", Config.globalShadows, function(Value)
+	Config.globalShadows = Value
+	Funcs:GlobalShadows(Value)
+end)alue
+	Funcs:ClearFog(Value)
+end)
+
+
+Section:Toggle("Global Shadows", "globalShadows", Config.globalShadows, function(Value)
+	Config.globalShadows = Value
+	Funcs:GlobalShadows(Value)
+end)alue
+	Funcs:ClearFog(Value)
+end)
+
+
+Section:Toggle("Global Shadows", "globalShadows", Config.globalShadows, function(Value)
+	Config.globalShadows = Value
+	Funcs:GlobalShadows(Value)
+end)alue
 	Funcs:ClearFog(Value)
 end)
 

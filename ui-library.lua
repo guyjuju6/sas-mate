@@ -69,17 +69,11 @@ function library:Create(title, gamename)
 		textcolor = "225, 225, 225",
 	}
 
-	if typeof(isfolder) == "function" and typeof(makefolder) == "function" then
-		if not isfolder("Sas") then
-			pcall(makefolder, "Sas")
-		end
+	if not isfile("Theme.txt") then
+		writefile("Theme.txt", game:GetService("HttpService"):JSONEncode(themes))
 	end
 
-	if not isfile("Sas/Theme.txt") then
-		writefile("Sas/Theme.txt", game:GetService("HttpService"):JSONEncode(themes))
-	end
-
-	local NewTheme = isfile("Sas/Theme.txt") and game:GetService("HttpService"):JSONDecode(readfile("Sas/Theme.txt")) or themes
+	local NewTheme = isfile("Theme.txt") and game:GetService("HttpService"):JSONDecode(readfile("Theme.txt")) or themes
 
 	for i,v in next, NewTheme do
 		local split = string.split(v, ',')
